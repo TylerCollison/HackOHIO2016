@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class SkillsViewAdapter extends RecyclerView.Adapter<SkillsViewAdapter.ViewHolder> {
 
-    List<Skills> skills = new ArrayList<>();
+    List<Skill> skills = new ArrayList<>();
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView skillText;
