@@ -26,15 +26,22 @@ public class SendMessage extends AppCompatActivity {
 
     private String[] paramsArray;
 
-    String messageCounter;
+    String messageCounter="messageCounter"; //set messageCount to be "0"
+    int count; // count is null
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
 
-        if (saveData.get("messageCounter") != null) {
-            messageCounter = saveData.get("messageCounter");
+        /*
+        Add a messageCounter pair (messageCounter, count) into saveData
+         */
+        if (saveData.get(messageCounter) != null) {
+            count = Integer.parseInt(saveData.get(messageCounter));
+        }else{
+            count = 0;
+            saveData.put(messageCounter,String.valueOf(count));
         }
 
         // receiverEmail~~receiverUsername~~skill
@@ -48,7 +55,7 @@ public class SendMessage extends AppCompatActivity {
     public void sendMessage (View v) {
         String senderEmail = saveData.get("Email");
         String senderUsername = saveData.get("Username");
-        uploadMessage(paramsArray[0] + senderEmail, paramsArray[0], messageText.getText().toString(), senderEmail,
+        uploadMessage(paramsArray[0] + senderEmail + String.valueOf(count), paramsArray[0], messageText.getText().toString(), senderEmail,
                paramsArray[1], senderUsername, paramsArray[2]);
         finish();
     }
