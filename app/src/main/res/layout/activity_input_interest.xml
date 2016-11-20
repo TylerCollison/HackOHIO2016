@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.ohio.hack.hackohio2016.InputInterest">
-    
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -98,7 +98,8 @@
             app:layout_anchorGravity="center_vertical|center_horizontal"
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick=""/>
 
 
     </RelativeLayout>
