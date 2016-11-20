@@ -39,6 +39,8 @@ public class SendMessage extends AppCompatActivity {
          */
         if (saveData.get(messageCounter) != null) {
             count = Integer.parseInt(saveData.get(messageCounter));
+            count++;
+            saveData.put(messageCounter,String.valueOf(count));
         }else{
             count = 0;
             saveData.put(messageCounter,String.valueOf(count));
@@ -55,8 +57,10 @@ public class SendMessage extends AppCompatActivity {
     public void sendMessage (View v) {
         String senderEmail = saveData.get("Email");
         String senderUsername = saveData.get("Username");
+
         uploadMessage(paramsArray[0] + senderEmail + String.valueOf(count), paramsArray[0], messageText.getText().toString(), senderEmail,
                paramsArray[1], senderUsername, paramsArray[2]);
+
         finish();
     }
 
