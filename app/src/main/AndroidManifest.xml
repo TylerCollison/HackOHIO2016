@@ -19,5 +19,10 @@
         <activity android:name=".InputInterest" />
         <activity android:name=".InputSkill"></activity>
     </application>
+    <activity
+        android:name=".SkillDescription"
+        android:label="@string/title_activity_skill_description"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
+    <activity android:name=".DashActivity"></activity>
 
 </manifest>
