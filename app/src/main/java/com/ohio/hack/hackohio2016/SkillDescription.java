@@ -40,6 +40,9 @@ public class SkillDescription extends AppCompatActivity {
 
                 descriptionString = description.getText().toString();
                 skillString = skill.getText().toString();
+
+                System.out.println(descriptionString);
+                System.out.println(skillString);
             }
         });
     }
