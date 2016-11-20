@@ -1,5 +1,6 @@
 package com.ohio.hack.hackohio2016;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -107,6 +108,15 @@ public class SkillDescription extends AppCompatActivity {
                                     + String.valueOf(skillIndex)).toString(), saveData.get("Description"
                                     + String.valueOf(skillIndex)).toString(), saveData.get("Email").toString(),
                             saveData.get("Skill" + String.valueOf(skillIndex)).toString());
+
+
+                    /*
+                    Change made
+                     */
+//                    Intent renewSkillIntent = new Intent(SkillDescription.this, InputSkill.class);
+//                    renewSkillIntent.putExtra("skillName", skill.getText());
+//                    startActivity(renewSkillIntent);
+
                     finish();
                 }
             }

@@ -16,7 +16,38 @@ public class InputSkill extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_skill);
+
+//        if(getIntent().getStringExtra("skillName") != null){
+//            Button skill1 = (Button)findViewById(R.id.skiButton1);
+//            skill1.setText("haha1");
+//        }
+//
+//
+//        if(getIntent().getStringExtra("skillName") != null){
+//            Button skill2 = (Button)findViewById(R.id.skiButton2);
+//            skill2.setText("haha2");
+//        }
+//
+//
+//        if(getIntent().getStringExtra("skillName") != null){
+//            Button skill3 = (Button)findViewById(R.id.skiButton3);
+//            skill3.setText(getIntent().getStringExtra("skillName"));
+//        }
+//
+//
+//        if(getIntent().getStringExtra("skillName") != null){
+//            Button skill4 = (Button)findViewById(R.id.skiButton4);
+//            skill4.setText(getIntent().getStringExtra("skillName"));
+//        }
+//
+//
+//        if(getIntent().getStringExtra("skillName") != null){
+//            Button skill5 = (Button)findViewById(R.id.skiButton5);
+//            skill5.setText(getIntent().getStringExtra("skillName"));
+//        }
+
     }
+
 
     public void goToDescription1(View v){
         Intent intent = new Intent(InputSkill.this, SkillDescription.class);
