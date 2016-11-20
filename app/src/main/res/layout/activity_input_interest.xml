@@ -99,7 +99,7 @@
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:onClick=""/>
+            android:onClick="saveInterests"/>
 
 
     </RelativeLayout>

@@ -23,7 +23,8 @@
         android:text="My Interests"
         android:id="@+id/interestsButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="goToInt" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +32,8 @@
         android:text="My Skills"
         android:id="@+id/skillsButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="goToSkills" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -40,5 +42,14 @@
         android:id="@+id/switch1"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        android:id="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="refresh" />
 
 </RelativeLayout>

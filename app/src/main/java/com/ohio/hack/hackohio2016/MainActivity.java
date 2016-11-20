@@ -11,17 +11,26 @@ import android.widget.EditText;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager;
+import com.amazonaws.mobileconnectors.cognito.Dataset;
+import com.amazonaws.mobileconnectors.cognito.Record;
+import com.amazonaws.mobileconnectors.cognito.SyncConflict;
+import com.amazonaws.mobileconnectors.cognito.exceptions.DataStorageException;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static CognitoSyncManager syncM;
-    public static CognitoCachingCredentialsProvider credentialsProvider;
+    private CognitoCachingCredentialsProvider credentialsProvider;
+    public static AmazonDynamoDBAsyncClient dynamo;
+    public static Dataset saveData;
 
-    String usernameStr;
-    String passwordStr;
-    String emailStr;
+    EditText username;
+    EditText password;
+    EditText email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,64 +43,70 @@ public class MainActivity extends AppCompatActivity {
                 Regions.US_EAST_1           /* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
         );
 
-
         syncM = new CognitoSyncManager(
                 getApplicationContext(),    /* get the context for the application */
                 Regions.US_EAST_1 ,    /* Identity Pool ID */
                 credentialsProvider/* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
         );
 
-//        Button saveIntButton = (Button) findViewById(R.id.inputButton);
-//        saveIntButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(MainActivity.this, InputSkill.class));
-//            }
-//        });
-//
-//        Button saveDescButton = (Button) findViewById(R.id.descriptionButton);
-//        saveDescButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(MainActivity.this, SkillDescription.class));
-//            }
-//       });
+        saveData = syncM.openOrCreateDataset("saveData");
+
+        // Link DynamoDB Client to the Cognito credentials
+        dynamo = new AmazonDynamoDBAsyncClient(credentialsProvider);
+
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+        email = (EditText) findViewById(R.id.email);
+
+        if(saveData.get("Username") != null) {
+            openDashActivity();
+            finish();
+        }
     }
 
+    private void openDashActivity () {
+        Intent dashIntent = new Intent(this, DashActivity.class);
+        startActivity(dashIntent);
+    }
 
     public void goToInt(View v){
         Intent intent = new Intent(MainActivity.this, InputInterest.class);
         startActivity(intent);
     }
 
-
-    public void goToDes(View v){
-        Intent intent = new Intent(MainActivity.this, SkillDescription.class);
-        startActivity(intent);
-    }
-
-    public void goToSkill(View v){
-        Intent intent = new Intent(MainActivity.this, InputSkill.class);
-        startActivity(intent);
-    }
-
     public void login(View v){
+        saveData.put("Username", username.getText().toString());
+        saveData.put("Password", password.getText().toString());
+        saveData.put("Email", email.getText().toString());
+        saveData.synchronizeOnConnectivity(new Dataset.SyncCallback() {
+            @Override
+            public void onSuccess(Dataset dataset, List<Record> updatedRecords) {
+                System.out.println("Sync Successful!");
+            }
 
-        EditText username = (EditText) findViewById(R.id.username);
-        EditText password = (EditText) findViewById(R.id.password);
-        EditText email = (EditText) findViewById(R.id.email);
+            @Override
+            public boolean onConflict(Dataset dataset, List<SyncConflict> conflicts) {
+                return false;
+            }
 
-        usernameStr = username.getText().toString();
-        passwordStr = password.getText().toString();
-        emailStr = email.getText().toString();
+            @Override
+            public boolean onDatasetDeleted(Dataset dataset, String datasetName) {
+                return false;
+            }
 
+            @Override
+            public boolean onDatasetsMerged(Dataset dataset, List<String> datasetNames) {
+                return false;
+            }
+
+            @Override
+            public void onFailure(DataStorageException dse) {
+                System.out.println("Sync Failed");
+            }
+        });
 
         Intent intent = new Intent(MainActivity.this, InputInterest.class);
         startActivity(intent);
-
-
-
-
     }
 
 

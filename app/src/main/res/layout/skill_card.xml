@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Skill"
-                android:id="@+id/skillText" />
+                android:id="@+id/skillTextInput" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Username"
                 android:id="@+id/usernameText"
-                android:layout_below="@+id/skillText"
+                android:layout_below="@+id/skillTextInput"
                 android:layout_alignParentStart="true" />
         </RelativeLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ohio.hack.hackohio2016.InputInterest">
+    tools:context="com.ohio.hack.hackohio2016.InputSkill">
 
 
 
@@ -34,7 +34,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
-            android:onClick="goToDescription"
+            android:onClick="goToDescription1"
             android:id="@+id/skiButton1"
             android:layout_toStartOf="@+id/skiSaveButton" />
 
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="goToDescription"
+            android:onClick="goToDescription2"
             android:id="@+id/skiButton2"
             android:layout_below="@+id/skiButton1"
             android:layout_alignStart="@+id/skiButton1"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="goToDescription"
+            android:onClick="goToDescription3"
             android:id="@+id/skiButton3"
             android:layout_below="@+id/skiButton2"
             android:layout_alignStart="@+id/skiButton1"
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="goToDescription"
+            android:onClick="goToDescription4"
             android:id="@+id/skiButton4"
             android:layout_below="@+id/skiButton3"
             android:layout_alignStart="@+id/skiButton1"
@@ -77,11 +77,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:onClick="goToDescription"
+            android:onClick="goToDescription5"
             android:id="@+id/skiButton5"
             android:layout_below="@+id/skiButton4"
             android:layout_alignStart="@+id/skiButton1"
-            android:layout_alignEnd="@+id/skiButton1" />
+            android:layout_alignEnd="@+id/skiButton1"
+            android:nestedScrollingEnabled="false" />
 
 
 
@@ -93,7 +94,8 @@
             app:layout_anchorGravity="center_vertical|center_horizontal"
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="save" />
 
     </RelativeLayout>
 

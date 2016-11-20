@@ -1,13 +1,16 @@
 package com.ohio.hack.hackohio2016;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.handlers.AsyncHandler;
+import com.amazonaws.mobileconnectors.cognito.Dataset;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBAsyncClient;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
@@ -27,11 +30,10 @@ public class DashActivity extends AppCompatActivity {
     //UI Variables
     RecyclerView skillsView;
 
-    // Variables for Amazon Cognito and user authentication
-    public static CognitoCachingCredentialsProvider credentialsProvider;
-
     // Variables for Dynamo DB
-    private AmazonDynamoDBAsyncClient dynamo;
+    private AmazonDynamoDBAsyncClient dynamo = MainActivity.dynamo;
+
+    private Dataset saveData = MainActivity.saveData;
 
     SkillsViewAdapter adapter = new SkillsViewAdapter();
 
@@ -42,23 +44,18 @@ public class DashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
 
-        // TODO: replace identity pool ID
-        credentialsProvider = new CognitoCachingCredentialsProvider(
-                getApplicationContext(),    /* get the context for the application */
-                "us-east-1:d467e43d-84f9-4df3-9b40-6ba8c224fd4e",    /* Identity Pool ID */
-                Regions.US_EAST_1           /* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
-        );
-
-        interests.add("unicorn hunting");
+        String interestsString = saveData.get("Interests");
+        String[] interestsArray = interestsString.split("~~");
+        for (int i = 0; i < interestsArray.length; i++) {
+            interests.add(interestsArray[i]);
+        }
 
         skillsView = (RecyclerView)findViewById(R.id.skillView);
         // setup the product view layout manager
         RecyclerView.LayoutManager productViewLayoutManager = new LinearLayoutManager(this);
         skillsView.setLayoutManager(productViewLayoutManager);
+        adapter.setContext(this);
         skillsView.setAdapter(adapter);
-
-        // Link DynamoDB Client to the Cognito credentials
-        dynamo = new AmazonDynamoDBAsyncClient(credentialsProvider);
 
         skillsQueryAsync.execute();
     }
@@ -67,7 +64,7 @@ public class DashActivity extends AppCompatActivity {
         @Override
         protected Object doInBackground(Object[] params) {
             for (String s : interests) {
-                skillsQuery(s, adapter);
+                skillsQuery(s.toLowerCase(), adapter);
             }
             return null;
         }
@@ -77,7 +74,7 @@ public class DashActivity extends AppCompatActivity {
         ScanRequest req = new ScanRequest("Skills");
         req.addExpressionAttributeNamesEntry("#T", "Skill");
         req.addExpressionAttributeValuesEntry(":i", new AttributeValue(interest));
-        req.setFilterExpression("#T = :i");
+        req.setFilterExpression("contains (#T, :i)");
         dynamo.scanAsync(req, new AsyncHandler<ScanRequest, ScanResult>() {
             @Override
             public void onError(Exception e) {
@@ -113,15 +110,37 @@ public class DashActivity extends AppCompatActivity {
                             Map<String, AttributeValue> userItem = getItemResult.getItem();
                             skill.setUsername(userItem.get("Username").getS().toString());
                             String interests = userItem.get("Interests").getS().toString();
-                            String[] interestsArray = interests.split("~|~");
+                            String[] interestsArray = interests.split("~~");
                             for (int i = 0; i < interestsArray.length; i++) {
                                 skill.addInterest(interestsArray[i]);
                             }
-                            skillsViewAdapter.addSkill(skill);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    skillsViewAdapter.addSkill(skill);
+                                    skillsViewAdapter.notifyDataSetChanged();
+                                }
+                            });
                         }
                     });
                 }
             }
         });
+    }
+
+    public void goToInt(View v){
+        Intent intent = new Intent (this, InputInterest.class);
+        startActivity(intent);
+    }
+
+    public void goToSkills (View v) {
+        Intent mySkillsIntent = new Intent (this, InputSkill.class);
+        startActivity(mySkillsIntent);
+    }
+
+    public void refresh (View v) {
+        Intent refreshIntent = new Intent (this, DashActivity.class);
+        startActivity(refreshIntent);
+        finish();
     }
 }
