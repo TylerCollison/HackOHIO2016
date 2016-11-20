@@ -43,6 +43,15 @@ public class SkillsViewAdapter extends RecyclerView.Adapter<SkillsViewAdapter.Vi
         holder.usernameText.setText(skills.get(position).getUsername());
     }
 
+    public void addSkill (Skill skill) {
+        skills.add(skill);
+        System.out.println("skill size = " + skills.size());
+    }
+
+    public void clear () {
+        skills.clear();
+    }
+
     @Override
     public int getItemCount() {
         return skills.size();
