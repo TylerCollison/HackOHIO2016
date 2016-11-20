@@ -2,11 +2,15 @@ package com.ohio.hack.hackohio2016;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +27,23 @@ public class MessagesViewAdapter extends RecyclerView.Adapter<MessagesViewAdapte
         TextView subjectSkillText;
         TextView senderUsernameText;
         TextView messageText;
+        Button reply;
 
         public ViewHolder(View itemView) {
             super(itemView);
             subjectSkillText = (TextView)itemView.findViewById(R.id.subjectSkillText);
             senderUsernameText = (TextView)itemView.findViewById(R.id.senderUsernameText);
             messageText = (TextView)itemView.findViewById(R.id.messageText);
+            reply = (Button)itemView.findViewById((R.id.replyButton));
         }
+
+//        @Override
+//        public void onCreate(Bundle savedInstanceState) {
+//            super.onCreate(savedInstanceState);
+//            setContentView(R.layout.message_card);
+//        }
+
+
     }
 
     @Override
@@ -47,6 +61,13 @@ public class MessagesViewAdapter extends RecyclerView.Adapter<MessagesViewAdapte
         holder.subjectSkillText.setText(messages.get(position).getSkill());
         holder.senderUsernameText.setText(messages.get(position).getSenderUsername());
         holder.messageText.setText(messages.get(position).getMessage());
+
+        holder.reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSendMessageActivity(view);
+            }
+        });
     }
 
     public void addMessage (Message message) {
@@ -54,8 +75,18 @@ public class MessagesViewAdapter extends RecyclerView.Adapter<MessagesViewAdapte
         System.out.println("message size = " + messages.size());
     }
 
+
     public void setContext (Context newContext) {
         owningContext = newContext;
+    }
+
+    public void openSendMessageActivity (View v) {
+        Intent sendMessageIntent = new Intent(owningContext, SendMessage.class);
+        Message m = messages.get(messages.size() - 1);
+        String params = m.getSenderEmail() + "~~" +
+                m.getReceiverEmail() + "~~" + m.getSkill();
+        sendMessageIntent.putExtra("messageParams", params);
+        owningContext.startActivity(sendMessageIntent);
     }
 
     public void clear () {
