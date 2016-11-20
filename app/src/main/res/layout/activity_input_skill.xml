@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.ohio.hack.hackohio2016.InputInterest">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:text="Please Input Skills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:textSize="30sp" />
+
+
+
+        <Button
+            android:text="Input Skill 1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/skiButton1"
+            android:layout_toStartOf="@+id/skiSaveButton" />
+
+        <Button
+            android:text="Input Skill 2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/skiButton2"
+            android:layout_below="@+id/skiButton1"
+            android:layout_alignStart="@+id/skiButton1"
+            android:layout_alignEnd="@+id/skiButton1"
+            />
+
+        <Button
+            android:text="Input Skill 3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/skiButton3"
+            android:layout_below="@+id/skiButton2"
+            android:layout_alignStart="@+id/skiButton1"
+            android:layout_alignEnd="@+id/skiButton1" />
+
+        <Button
+            android:text="Input Skill 4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/skiButton4"
+            android:layout_below="@+id/skiButton3"
+            android:layout_alignStart="@+id/skiButton1"
+            android:layout_alignEnd="@+id/skiButton1" />
+
+        <Button
+            android:text="Input Skill 5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/skiButton5"
+            android:layout_below="@+id/skiButton4"
+            android:layout_alignStart="@+id/skiButton1"
+            android:layout_alignEnd="@+id/skiButton1" />
+
+
+
+
+
+
+        <Button
+            android:text="SAVE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/skiSaveButton"
+            app:layout_anchorGravity="center_vertical|center_horizontal"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/skiButton5"
+            android:layout_alignStart="@+id/skiButton5"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="49dp"
+            android:id="@+id/button8" />
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
