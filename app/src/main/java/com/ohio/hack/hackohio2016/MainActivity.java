@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void test (View v) {
+        Intent testIntent = new Intent(this, DashActivity.class);
+        startActivity(testIntent);
+    }
+
 }
 
 
