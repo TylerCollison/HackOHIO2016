@@ -26,6 +26,8 @@
             android:label="@string/title_activity_skill_description"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SkillView" />
+        <activity android:name=".Inbox" />
+        <activity android:name=".SendMessage"></activity>
     </application>
 
 </manifest>

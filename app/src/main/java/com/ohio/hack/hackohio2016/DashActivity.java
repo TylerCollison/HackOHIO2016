@@ -143,4 +143,9 @@ public class DashActivity extends AppCompatActivity {
         startActivity(refreshIntent);
         finish();
     }
+
+    public void openInbox (View v) {
+        Intent inboxIntent = new Intent (this, Inbox.class);
+        startActivity(inboxIntent);
+    }
 }

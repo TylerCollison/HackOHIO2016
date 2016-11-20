@@ -114,4 +114,14 @@
         android:layout_alignTop="@+id/averageRatingBar"
         android:layout_alignParentStart="true" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Message"
+        android:id="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="openSendMessageActivity" />
+
 </RelativeLayout>

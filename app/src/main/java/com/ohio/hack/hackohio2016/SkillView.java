@@ -146,4 +146,11 @@ public class SkillView extends AppCompatActivity {
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, skillHeader.getText());
         this.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
     }
+
+    public void openSendMessageActivity (View v) {
+        Intent sendMessageIntent = new Intent(this, SendMessage.class);
+        sendMessageIntent.putExtra("messageParams", emailHeader.getText().toString() + "~~" +
+                usernameHeader.getText().toString() + "~~" + skillHeader.getText());
+        startActivity(sendMessageIntent);
+    }
 }
