@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:text="Please Input Skills"
+            android:text="I know and what to share..."
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"

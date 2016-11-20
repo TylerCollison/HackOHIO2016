@@ -132,10 +132,11 @@ public class SkillDescription extends AppCompatActivity {
 
     private void uploadSkill (String skillID, String description, String email, String skill) {
         Map<String, AttributeValue> skillObject = new HashMap<>();
-        skillObject.put("SkillID", new AttributeValue(skillID));
+        skillObject.put("SkillID", new AttributeValue(skillID.toLowerCase()));
         skillObject.put("Description", new AttributeValue(description));
         skillObject.put("Email", new AttributeValue(email));
         skillObject.put("Skill", new AttributeValue(skill.toLowerCase()));
+        skillObject.put("Rating", new AttributeValue("0"));
         PutItemRequest req = new PutItemRequest("Skills", skillObject);
         dynamo.putItemAsync(req, new AsyncHandler<PutItemRequest, PutItemResult>() {
             @Override
