@@ -26,10 +26,16 @@ public class SendMessage extends AppCompatActivity {
 
     private String[] paramsArray;
 
+    String messageCounter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
+
+        if (saveData.get("messageCounter") != null) {
+            messageCounter = saveData.get("messageCounter");
+        }
 
         // receiverEmail~~receiverUsername~~skill
         String params = getIntent().getStringExtra("messageParams");
