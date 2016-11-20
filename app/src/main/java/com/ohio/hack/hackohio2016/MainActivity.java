@@ -44,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToSkill(View v){
+        Intent intent = new Intent(MainActivity.this, InputSkill.class);
+        startActivity(intent);
+    }
+
 }
 
 

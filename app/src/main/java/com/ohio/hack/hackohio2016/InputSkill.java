@@ -19,25 +19,11 @@ public class InputSkill extends AppCompatActivity {
 
 
         Button ski1 = (Button) findViewById(R.id.skiButton1);
+
+
         ski1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-//                EditText ski1Text =  (EditText) findViewById(R.id.skiText1);
-//                EditText ski2Text =  (EditText) findViewById(R.id.skiText2);
-//                EditText ski3Text =  (EditText) findViewById(R.id.skiText3);
-//                EditText ski4Text =  (EditText) findViewById(R.id.skiText4);
-//                EditText ski5Text =  (EditText) findViewById(R.id.skiText5);
-//
-//                String ski1 = ski1Text.getText().toString();
-//                String ski2 = ski2Text.getText().toString();
-//                String ski3 = ski3Text.getText().toString();
-//                String ski4 = ski4Text.getText().toString();
-//                String ski5 = ski5Text.getText().toString();
-
-
-
-
-
+                startActivity(new Intent(InputSkill.this, SkillDescription.class));
             }
         });
 
@@ -46,7 +32,6 @@ public class InputSkill extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(InputSkill.this, SkillDescription.class));
-
 
 
             }
@@ -83,6 +68,7 @@ public class InputSkill extends AppCompatActivity {
         });
 
     }
+
 
 }
 
