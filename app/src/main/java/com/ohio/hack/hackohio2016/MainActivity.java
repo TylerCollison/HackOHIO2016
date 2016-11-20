@@ -8,7 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+
 public class MainActivity extends AppCompatActivity {
+
+    public static CognitoSyncManager syncM;
+    public static CognitoCachingCredentialsProvider credentialsProvider;
 
     String usernameStr;
     String passwordStr;
@@ -19,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        credentialsProvider = new CognitoCachingCredentialsProvider(
+                getApplicationContext(),    /* get the context for the application */
+                "us-east-1:d467e43d-84f9-4df3-9b40-6ba8c224fd4e",    /* Identity Pool ID */
+                Regions.US_EAST_1           /* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
+        );
+
+
+        syncM = new CognitoSyncManager(
+                getApplicationContext(),    /* get the context for the application */
+                Regions.US_EAST_1 ,    /* Identity Pool ID */
+                credentialsProvider/* Region for your identity pool--US_EAST_1 or EU_WEST_1*/
+        );
 
 //        Button saveIntButton = (Button) findViewById(R.id.inputButton);
 //        saveIntButton.setOnClickListener(new View.OnClickListener() {
@@ -64,10 +85,16 @@ public class MainActivity extends AppCompatActivity {
         passwordStr = password.getText().toString();
         emailStr = email.getText().toString();
 
+
         Intent intent = new Intent(MainActivity.this, InputInterest.class);
         startActivity(intent);
 
+
+
+
     }
+
+
 
 }
 
