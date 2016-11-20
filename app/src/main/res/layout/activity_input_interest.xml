@@ -13,83 +13,92 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            android:text="I want to learn about..."
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView"
-            android:textSize="30sp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp" />
+            android:id="@+id/scrollView2"
+            android:layout_above="@+id/intSaveButton"
+            android:layout_alignParentTop="true">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:ems="30"
-            android:layout_marginTop="20dp"
-            android:id="@+id/intText1"
-            android:layout_below="@+id/textView"
-            android:layout_marginLeft="25dp"
-            tools:text="interest"
-            android:layout_toStartOf="@+id/intSaveButton"
-            android:layout_alignEnd="@+id/textView" />
+                <TextView
+                    android:text="I want to learn about..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:textSize="30sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp" />
 
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:ems="30"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/intText1"
+                    android:layout_below="@+id/textView"
+                    tools:text="interest"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginTop="10dp"
-            android:id="@+id/intText2"
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/intText2"
 
-            android:layout_below="@+id/intText1"
+                    android:layout_below="@+id/intText1"
 
-            android:inputType="textCapWords"
-            tools:text="interest"
-            android:layout_alignStart="@+id/intText1"
-            android:layout_alignEnd="@+id/intText1"
-            />
+                    android:inputType="textCapWords"
+                    tools:text="interest"
+                    android:layout_alignStart="@+id/intText1"
+                    android:layout_alignEnd="@+id/intText1"
+                    />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:ems="10"
-            android:layout_marginTop="10dp"
-            android:id="@+id/intText3"
-            android:layout_below="@+id/intText2"
-            android:layout_alignStart="@+id/intText1"
-            tools:text="interest"
-            android:layout_alignEnd="@+id/intText1" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:ems="10"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/intText3"
+                    android:layout_below="@+id/intText2"
+                    android:layout_alignStart="@+id/intText1"
+                    tools:text="interest"
+                    android:layout_alignEnd="@+id/intText1" />
 
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:ems="10"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/intText4"
+                    tools:text="interest"
+                    android:layout_below="@+id/intText3"
+                    android:layout_alignStart="@+id/intText1"
+                    android:layout_alignEnd="@+id/intText1" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:ems="10"
-            android:layout_marginTop="10dp"
-            android:id="@+id/intText4"
-            tools:text="interest"
-            android:layout_below="@+id/intText3"
-            android:layout_alignStart="@+id/intText1"
-            android:layout_alignEnd="@+id/intText1" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:ems="10"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/intText5"
+                    android:layout_below="@+id/intText4"
+                    android:layout_alignStart="@+id/intText1"
+                    tools:text="interest"
+                    android:layout_alignEnd="@+id/intText1" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textCapWords"
-            android:ems="10"
-            android:layout_marginTop="10dp"
-            android:id="@+id/intText5"
-            android:layout_below="@+id/intText4"
-            android:layout_alignStart="@+id/intText1"
-            tools:text="interest"
-            android:layout_alignEnd="@+id/intText1" />
-
+            </RelativeLayout>
+        </ScrollView>
 
         <Button
             android:text="SAVE"

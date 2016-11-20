@@ -25,58 +25,72 @@
             android:layout_marginTop="10dp" />
 
 
-
-        <Button
-            android:text="Input Skill 1"
+        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="goToDescription1"
-            android:id="@+id/skiButton1"
-            android:layout_above="@+id/skiButton2"
+            android:id="@+id/scrollView4"
+            android:layout_above="@+id/skiSaveButton"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/skiSaveButton" />
+            android:layout_below="@+id/textView">
 
-        <Button
-            android:text="Input Skill 2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="goToDescription2"
-            android:id="@+id/skiButton2"
-            android:layout_above="@+id/skiButton3"
-            android:layout_alignEnd="@+id/skiSaveButton"
-            android:layout_alignParentStart="true" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <Button
-            android:text="Input Skill 3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="goToDescription3"
-            android:id="@+id/skiButton3"
-            android:layout_above="@+id/skiButton4"
-            android:layout_alignEnd="@+id/skiButton4"
-            android:layout_alignParentStart="true" />
+                <Button
+                    android:text="Input Skill 1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goToDescription1"
+                    android:id="@+id/skiButton1"
+                    android:layout_above="@+id/skiButton2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/skiSaveButton" />
 
-        <Button
-            android:text="Input Skill 4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="goToDescription4"
-            android:id="@+id/skiButton4"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/skiSaveButton" />
+                <Button
+                    android:text="Input Skill 2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goToDescription2"
+                    android:id="@+id/skiButton2"
+                    android:layout_above="@+id/skiButton3"
+                    android:layout_alignEnd="@+id/skiSaveButton"
+                    android:layout_alignParentStart="true" />
 
-        <Button
-            android:text="Input Skill 5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="goToDescription5"
-            android:id="@+id/skiButton5"
-            android:nestedScrollingEnabled="false"
-            android:layout_below="@+id/skiButton4"
-            android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/skiSaveButton" />
+                <Button
+                    android:text="Input Skill 3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goToDescription3"
+                    android:id="@+id/skiButton3"
+                    android:layout_above="@+id/skiButton4"
+                    android:layout_alignEnd="@+id/skiButton4"
+                    android:layout_alignParentStart="true" />
 
+                <Button
+                    android:text="Input Skill 4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goToDescription4"
+                    android:id="@+id/skiButton4"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/skiSaveButton" />
+
+                <Button
+                    android:text="Input Skill 5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="goToDescription5"
+                    android:id="@+id/skiButton5"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_below="@+id/skiButton4"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/skiSaveButton" />
+            </LinearLayout>
+        </ScrollView>
 
 
         <Button

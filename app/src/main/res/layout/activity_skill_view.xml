@@ -16,7 +16,8 @@
         android:text="Skill"
         android:id="@+id/skillHeader"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/button2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,7 +28,8 @@
         android:layout_below="@+id/skillHeader"
         android:layout_alignParentStart="true"
         android:clickable="false"
-        android:nestedScrollingEnabled="true" />
+        android:nestedScrollingEnabled="true"
+        android:layout_toStartOf="@+id/button2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,35 +42,6 @@
         android:clickable="true"
         android:onClick="openEmailActivity"
         android:textColor="#467ed7" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="skillDescription"
-        android:id="@+id/skillDescriptionText"
-        android:layout_below="@+id/emailHeader"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/interestView"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/textView6" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Other Interests"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/averageRatingBar"
-        android:layout_centerHorizontal="true" />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -92,27 +65,11 @@
         android:layout_height="wrap_content"
         android:text="Confirm"
         android:id="@+id/confirmRatingButton"
+        android:onClick="confirmRating"
         android:layout_alignBottom="@+id/myRatingBar"
-        android:layout_alignTop="@+id/myRatingBar"
-        android:layout_alignEnd="@+id/interestView"
-        android:layout_toEndOf="@+id/textView3"
-        android:onClick="confirmRating" />
-
-    <RatingBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/averageRatingBar"
-        android:layout_below="@+id/skillDescriptionText"
-        android:layout_toEndOf="@+id/usernameHeader" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Rating: "
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/averageRatingBar"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/myRatingBar"
+        android:layout_alignTop="@+id/myRatingBar" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -123,5 +80,68 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:onClick="openSendMessageActivity" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView3"
+        android:layout_above="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/skillDescriptionText"
+        android:layout_below="@+id/emailHeader">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="skillDescription"
+                android:id="@+id/skillDescriptionText"
+                android:layout_below="@+id/emailHeader"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Overall Rating: "
+                android:id="@+id/textView7"
+                android:layout_alignTop="@+id/averageRatingBar"
+                android:layout_alignParentStart="true"
+                android:textAlignment="center" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/averageRatingBar"
+                android:layout_below="@+id/skillDescriptionText"
+                android:layout_toEndOf="@+id/textView7" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Other Interests"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/averageRatingBar"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center" />
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:id="@+id/interestView"
+                android:layout_alignParentEnd="true"
+                android:layout_above="@+id/textView6"
+                android:layout_alignTop="@+id/scrollView3" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
