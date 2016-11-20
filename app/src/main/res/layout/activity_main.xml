@@ -27,8 +27,7 @@
         android:onClick="goToInt"
         android:id="@+id/inputButton"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/descriptionButton"
-        android:layout_alignParentStart="true" />
+ />
 
     <Button
         android:text="Input Skill"
