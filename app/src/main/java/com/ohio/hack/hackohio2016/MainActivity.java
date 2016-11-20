@@ -14,20 +14,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button saveIntButton = (Button) findViewById(R.id.inputButton);
-        saveIntButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, InputSkill.class));
-            }
-        });
-
-        Button saveDescButton = (Button) findViewById(R.id.descriptionButton);
-        saveDescButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                startActivity(new Intent(MainActivity.this, SkillDescription.class));
-            }
-        });
+//        Button saveIntButton = (Button) findViewById(R.id.inputButton);
+//        saveIntButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(MainActivity.this, InputSkill.class));
+//            }
+//        });
+//
+//        Button saveDescButton = (Button) findViewById(R.id.descriptionButton);
+//        saveDescButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(MainActivity.this, SkillDescription.class));
+//            }
+//       });
     }
+
+
+    public void goToInt(View v){
+        Intent intent = new Intent(MainActivity.this, InputInterest.class);
+        startActivity(intent);
+    }
+
+
+    public void goToDes(View v){
+        Intent intent = new Intent(MainActivity.this, SkillDescription.class);
+        startActivity(intent);
+    }
+
 }
+
+

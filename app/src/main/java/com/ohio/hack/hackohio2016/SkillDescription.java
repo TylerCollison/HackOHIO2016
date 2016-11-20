@@ -18,7 +18,7 @@ public class SkillDescription extends AppCompatActivity {
     String descriptionString;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_description);
 
