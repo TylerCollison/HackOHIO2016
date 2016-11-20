@@ -34,6 +34,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
+            android:onClick="goToDescription"
             android:id="@+id/skiButton1"
             android:layout_toStartOf="@+id/skiSaveButton" />
 
@@ -42,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:onClick="goToDescription"
             android:id="@+id/skiButton2"
             android:layout_below="@+id/skiButton1"
             android:layout_alignStart="@+id/skiButton1"
@@ -53,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:onClick="goToDescription"
             android:id="@+id/skiButton3"
             android:layout_below="@+id/skiButton2"
             android:layout_alignStart="@+id/skiButton1"
@@ -63,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:onClick="goToDescription"
             android:id="@+id/skiButton4"
             android:layout_below="@+id/skiButton3"
             android:layout_alignStart="@+id/skiButton1"
@@ -73,13 +77,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:onClick="goToDescription"
             android:id="@+id/skiButton5"
             android:layout_below="@+id/skiButton4"
             android:layout_alignStart="@+id/skiButton1"
             android:layout_alignEnd="@+id/skiButton1" />
-
-
-
 
 
 

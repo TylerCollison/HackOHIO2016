@@ -19,7 +19,7 @@
         android:id="@+id/descriptionButton" />
 
     <Button
-        android:text="Input Skill"
+        android:text="Input Int"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/descriptionButton"

@@ -3,6 +3,7 @@ package com.ohio.hack.hackohio2016;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,14 +47,24 @@ public class InputInterest extends AppCompatActivity {
                 String int5 = int5Text.getText().toString();
 
 
-                System.out.print(int1);
-                System.out.print(int2);
-                System.out.print(int3);
-                System.out.print(int4);
-                System.out.print(int5);
+//                System.out.print(int1);
+//                System.out.print(int2);
+//                System.out.print(int3);
+//                System.out.print(int4);
+//                System.out.print(int5);
+
+                Log.d("int1",int1);
+
+                Log.d("int2",int2);
+
+                Log.d("int3",int3);
+
+                Log.d("int4",int4);
+
+                Log.d("int5",int5);
 
 
-                startActivity(new Intent(InputInterest.this, InputSkill.class));
+                //startActivity(new Intent(InputInterest.this, InputSkill.class));
 
 
 

@@ -2,6 +2,7 @@ package com.ohio.hack.hackohio2016;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
@@ -41,8 +42,12 @@ public class SkillDescription extends AppCompatActivity {
                 descriptionString = description.getText().toString();
                 skillString = skill.getText().toString();
 
-                System.out.println(descriptionString);
-                System.out.println(skillString);
+//                System.out.println(descriptionString);
+//                System.out.println(skillString);
+
+                Log.d("Skill",skillString);
+
+                Log.d("Des",descriptionString);
             }
         });
     }
