@@ -6,8 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+
+    String usernameStr;
+    String passwordStr;
+    String emailStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +54,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void test (View v) {
-        Intent testIntent = new Intent(this, DashActivity.class);
-        startActivity(testIntent);
+    public void login(View v){
+
+        EditText username = (EditText) findViewById(R.id.username);
+        EditText password = (EditText) findViewById(R.id.password);
+        EditText email = (EditText) findViewById(R.id.email);
+
+        usernameStr = username.getText().toString();
+        passwordStr = password.getText().toString();
+        emailStr = email.getText().toString();
+
+        Intent intent = new Intent(MainActivity.this, InputInterest.class);
+        startActivity(intent);
+
     }
 
 }
