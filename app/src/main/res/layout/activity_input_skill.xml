@@ -19,10 +19,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:textSize="30sp"
             android:layout_alignParentTop="true"
-            android:textSize="30sp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
 
 
 
@@ -30,72 +30,66 @@
             android:text="Input Skill 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="20dp"
             android:onClick="goToDescription1"
             android:id="@+id/skiButton1"
-            android:layout_toStartOf="@+id/skiSaveButton" />
+            android:layout_above="@+id/skiButton2"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/skiSaveButton" />
 
         <Button
             android:text="Input Skill 2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:onClick="goToDescription2"
             android:id="@+id/skiButton2"
-            android:layout_below="@+id/skiButton1"
-            android:layout_alignStart="@+id/skiButton1"
-            android:layout_alignEnd="@+id/skiButton1"
-            />
+            android:layout_above="@+id/skiButton3"
+            android:layout_alignEnd="@+id/skiSaveButton"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:text="Input Skill 3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:onClick="goToDescription3"
             android:id="@+id/skiButton3"
-            android:layout_below="@+id/skiButton2"
-            android:layout_alignStart="@+id/skiButton1"
-            android:layout_alignEnd="@+id/skiButton1" />
+            android:layout_above="@+id/skiButton4"
+            android:layout_alignEnd="@+id/skiButton4"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:text="Input Skill 4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:onClick="goToDescription4"
             android:id="@+id/skiButton4"
-            android:layout_below="@+id/skiButton3"
-            android:layout_alignStart="@+id/skiButton1"
-            android:layout_alignEnd="@+id/skiButton1" />
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/skiSaveButton" />
 
         <Button
             android:text="Input Skill 5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:onClick="goToDescription5"
             android:id="@+id/skiButton5"
+            android:nestedScrollingEnabled="false"
             android:layout_below="@+id/skiButton4"
-            android:layout_alignStart="@+id/skiButton1"
-            android:layout_alignEnd="@+id/skiButton1"
-            android:nestedScrollingEnabled="false" />
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/skiSaveButton" />
 
 
 
         <Button
             android:text="SAVE"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:id="@+id/skiSaveButton"
             app:layout_anchorGravity="center_vertical|center_horizontal"
             android:layout_gravity="bottom|right"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:onClick="save" />
+            android:onClick="save"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 

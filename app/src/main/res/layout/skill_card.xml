@@ -7,7 +7,7 @@
     android:id="@+id/product_card"
     android:layout_margin="5dp"
     card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="1dp"
+    card_view:cardElevation="2dp"
     card_view:contentPadding="4dp"
     android:clickable="true" >
 

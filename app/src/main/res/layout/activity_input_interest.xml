@@ -18,10 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:textSize="30sp"
             android:layout_alignParentTop="true"
-            android:textSize="30sp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
 
 
         <EditText
@@ -34,7 +34,8 @@
             android:layout_below="@+id/textView"
             android:layout_marginLeft="25dp"
             tools:text="interest"
-            android:layout_toStartOf="@+id/intSaveButton" />
+            android:layout_toStartOf="@+id/intSaveButton"
+            android:layout_alignEnd="@+id/textView" />
 
 
         <EditText
@@ -93,13 +94,14 @@
         <Button
             android:text="SAVE"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:id="@+id/intSaveButton"
             app:layout_anchorGravity="center_vertical|center_horizontal"
             android:layout_gravity="bottom|right"
+            android:onClick="saveInterests"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="saveInterests"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
 
     </RelativeLayout>
