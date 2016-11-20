@@ -1,6 +1,7 @@
 package com.ohio.hack.hackohio2016;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
